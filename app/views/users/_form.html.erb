@@ -1,4 +1,4 @@
-<%= form_for @user, html: { multipart: true } do |f| %>
+<%= form_for(@user, multipart: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,18 +11,16 @@
     </div>
   <% end %>
 
-  <%= form_for @user, html: { multipart: true } do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :avatar %>
+    <%= f.label "Photo" %><br>
     <%= f.file_field :avatar %>
   </div>
   <div class="actions">
-    <%= f.submit 'Make a friend' %>
+    <%= f.submit 'Add a User' %>
     <%= link_to 'Nevermind', users_path, class: 'button' %>
   </div>
-<% end %>
 <% end %>
